@@ -1,0 +1,10 @@
+@import "../../../../node_modules/normalize.css";
+
+* {
+    font-family: $font-family;
+}
+
+body {
+    font-size: 16px;
+    color: $c-black;
+}
