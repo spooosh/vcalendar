@@ -20,4 +20,6 @@ if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
+VCalendar.install = install;
+
 export default VCalendar;
