@@ -1,8 +1,10 @@
-export const dayTemplate = (year, month, date) => ({
-    year: year,
-    month: month,
-    date: date
-});
+export const dayTemplate = (year, month, date) => {
+    return {
+        year: year,
+        month: month,
+        date: date
+    };
+};
 
 export const getDaysInMonth = (year, month) => {
     let lastDate = new Date(year, month + 1, 0).getDate();

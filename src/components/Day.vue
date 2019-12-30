@@ -52,7 +52,10 @@
 
         computed: {
             parsedDate() {
-                return new Date(`${this.month + 1}.${this.date},${this.year}`);
+                let m = this.month + 1 < 10 ? `0${this.month + 1}` : this.month + 1;
+                let d = this.date < 10 ? `0${this.date}` : this.date;
+
+                return new Date(`${this.year}-${m}-${d}`);
             },
 
             isToday() {

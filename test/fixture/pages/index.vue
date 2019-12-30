@@ -13,10 +13,12 @@
                  :class="$style.calendar">
                 <VCalendar
                         locale="ru"
-                        :disabled="['passed']"
+                        :allowed="['2019-12-07','2019-12-21','2019-12-28']"
                         :start-week-day="1"
                         multiple
-                        @change="val => dates = val.slice()"/>
+                        allow-empty
+                        @change="val => dates = val.slice()"
+                />
             </div>
         </div>
     </div>
@@ -39,7 +41,7 @@
                 return this.dates.map((d, index) => {
                     let date = new Date(d);
 
-                    let str = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+                    let str = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 
                     if (index !== this.dates.length - 1)
                         str += ' ';

@@ -110,9 +110,17 @@
 
         computed: {
             today() {
-                let d = new Date();
+                let date = new Date();
 
-                return new Date(`${d.getMonth() + 1}.${d.getDate()}.${d.getFullYear()}`);
+                let d = date.getDate();
+                if (d < 10)
+                    d = `0${d}`;
+
+                let m = date.getMonth() + 1;
+                if (m < 10)
+                    m = `0${m}`;
+
+                return new Date(`${date.getFullYear()}-${m}-${d}`);
             },
 
             /*
@@ -156,9 +164,11 @@
             ** Allowed dates
             */
             allowedDates() {
-                return this.allowed?.length
+                let dates = this.allowed?.length
                     ? this.allowed.filter(i => Date.parse(i)).map(i => new Date(i).getTime())
                     : [];
+
+                return dates;
             }
         },
 
