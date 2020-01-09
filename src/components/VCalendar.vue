@@ -36,6 +36,8 @@
 </template>
 
 <script>
+    import {getDateTime} from '../helpers/dates';
+
     import Popover from './Popover.vue';
     import YearList from './YearList.vue';
     import MonthList from './MonthList.vue';
@@ -110,17 +112,7 @@
 
         computed: {
             today() {
-                let date = new Date();
-
-                let d = date.getDate();
-                if (d < 10)
-                    d = `0${d}`;
-
-                let m = date.getMonth() + 1;
-                if (m < 10)
-                    m = `0${m}`;
-
-                return new Date(`${date.getFullYear()}-${m}-${d}`);
+                return getDateTime(new Date());
             },
 
             /*
@@ -137,7 +129,7 @@
 
                 param = param[0];
                 let date = param.split(' ')[1];
-                date = Date.parse(date);
+                date = getDateTime(date);
 
                 return date ? new Date(date) : null;
             },
@@ -149,14 +141,14 @@
 
                 param = param[0];
                 let date = param.split(' ')[1];
-                date = Date.parse(date);
+                date = getDateTime(Date.parse(date));
 
                 return date ? new Date(date) : null;
             },
 
             disabledDates() {
                 return this.disabled?.length
-                    ? this.disabled.filter(i => Date.parse(i)).map(i => new Date(i).getTime())
+                    ? this.disabled.filter(i => Date.parse(i)).map(i => getDateTime(i))
                     : [];
             },
 
@@ -165,7 +157,7 @@
             */
             allowedDates() {
                 let dates = this.allowed?.length
-                    ? this.allowed.filter(i => Date.parse(i)).map(i => new Date(i).getTime())
+                    ? this.allowed.filter(i => Date.parse(i)).map(i => getDateTime(i))
                     : [];
 
                 return dates;

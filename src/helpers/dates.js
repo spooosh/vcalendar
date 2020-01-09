@@ -51,3 +51,13 @@ export const dateUntil = (val, untilDate) => {
 export const dateAfter = (val, afterDate) => {
     return val.getTime() > afterDate.getTime();
 };
+
+export const getDateTime = date => {
+    const newDate = new Date(date);
+
+    const y = newDate.getFullYear();
+    const d = newDate.getDate();
+    const m = newDate.getMonth();
+
+    return new Date(y, m, d).getTime();
+};

@@ -58,9 +58,9 @@
             },
 
             onMouseLeave() {
-                this.visibleTimeout = setTimeout(() => {
-                    this.isVisible = false;
-                }, 20);
+                // this.visibleTimeout = setTimeout(() => {
+                //     this.isVisible = false;
+                // }, 20);
             }
         }
     };

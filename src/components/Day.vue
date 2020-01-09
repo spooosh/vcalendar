@@ -23,7 +23,7 @@
             /*
             ** Global options
             */
-            today: Date,
+            today: Number,
             chosen: Array,
 
             /*
@@ -52,10 +52,11 @@
 
         computed: {
             parsedDate() {
-                let m = this.month + 1 < 10 ? `0${this.month + 1}` : this.month + 1;
-                let d = this.date < 10 ? `0${this.date}` : this.date;
+                return new Date(this.year, this.month, this.date);
+            },
 
-                return new Date(`${this.year}-${m}-${d}`);
+            time() {
+                return this.parsedDate.getTime();
             },
 
             isToday() {

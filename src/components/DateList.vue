@@ -104,7 +104,7 @@
             locale: String,
             chosen: Array,
             focused: Object,
-            today: [String, Date],
+            today: Number,
 
             /*
             ** Disabled options
