@@ -13,7 +13,7 @@
                  :class="$style.calendar">
                 <VCalendar
                         locale="ru"
-                        :allowed="['2019-12-07','2019-12-21','2019-12-28']"
+                        :disabled="[`until ${today}`]"
                         :start-week-day="1"
                         multiple
                         allow-empty
@@ -37,6 +37,12 @@
         },
 
         computed: {
+            today() {
+                let t = new Date();
+
+                return `${t.getFullYear()}.${t.getMonth() + 1}.${t.getDate()}`;
+            },
+
             inputValues() {
                 return this.dates.map((d, index) => {
                     let date = new Date(d);

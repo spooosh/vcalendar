@@ -1,3 +1,92 @@
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+var dayTemplate = function dayTemplate(year, month, date) {
+  return {
+    year: year,
+    month: month,
+    date: date
+  };
+};
+var getDaysInMonth = function getDaysInMonth(year, month) {
+  var lastDate = new Date(year, month + 1, 0).getDate();
+  return _toConsumableArray(Array(lastDate).keys()).map(function (i) {
+    return dayTemplate(year, month, i + 1);
+  });
+};
+var getFirstWeek = function getFirstWeek(year, month, addWeek, startWeekDay) {
+  var first = new Date(year, month, 1);
+  var firstDay = first.getDay() - startWeekDay;
+  var diff = 7 - firstDay;
+  diff = diff >= 7 ? diff - 7 : diff;
+  if (addWeek) { diff += addWeek * 7; }
+  return _toConsumableArray(Array(diff).keys()).map(function (i) {
+    return dayTemplate(year, month, i + 1);
+  });
+};
+var getLastWeek = function getLastWeek(year, month, startWeekDay) {
+  var last = new Date(year, month + 1, 0);
+  var lastDate = last.getDate();
+  var lastDay = last.getDay() + 1 - startWeekDay;
+  var diff = lastDate - lastDay;
+
+  var days = _toConsumableArray(Array(lastDay).keys()).map(function (i) {
+    return dayTemplate(year, month, diff + i + 1);
+  });
+
+  return days.length < 7 ? days : [];
+};
+var isPassed = function isPassed(date) {
+  var today = new Date();
+  today = new Date("".concat(today.getMonth() + 1, ".").concat(today.getDate(), ".").concat(today.getFullYear()));
+  return date.getTime() < today.getTime();
+};
+var dateUntil = function dateUntil(val, untilDate) {
+  return val.getTime() < untilDate.getTime();
+};
+var dateAfter = function dateAfter(val, afterDate) {
+  return val.getTime() > afterDate.getTime();
+};
+var getDateTime = function getDateTime(date) {
+  var newDate = new Date(date);
+  var y = newDate.getFullYear();
+  var d = newDate.getDate();
+  var m = newDate.getMonth();
+  return new Date(y, m, d).getTime();
+};
+
 //
 //
 //
@@ -285,41 +374,6 @@ var __vue_staticRenderFns__ = [];
     undefined
   );
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-    return arr2;
-  }
-}
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-
 //
 //
 //
@@ -513,53 +567,6 @@ var __vue_staticRenderFns__$3 = [];
     undefined
   );
 
-var dayTemplate = function dayTemplate(year, month, date) {
-  return {
-    year: year,
-    month: month,
-    date: date
-  };
-};
-var getDaysInMonth = function getDaysInMonth(year, month) {
-  var lastDate = new Date(year, month + 1, 0).getDate();
-  return _toConsumableArray(Array(lastDate).keys()).map(function (i) {
-    return dayTemplate(year, month, i + 1);
-  });
-};
-var getFirstWeek = function getFirstWeek(year, month, addWeek, startWeekDay) {
-  var first = new Date(year, month, 1);
-  var firstDay = first.getDay() - startWeekDay;
-  var diff = 7 - firstDay;
-  diff = diff >= 7 ? diff - 7 : diff;
-  if (addWeek) { diff += addWeek * 7; }
-  return _toConsumableArray(Array(diff).keys()).map(function (i) {
-    return dayTemplate(year, month, i + 1);
-  });
-};
-var getLastWeek = function getLastWeek(year, month, startWeekDay) {
-  var last = new Date(year, month + 1, 0);
-  var lastDate = last.getDate();
-  var lastDay = last.getDay() + 1 - startWeekDay;
-  var diff = lastDate - lastDay;
-
-  var days = _toConsumableArray(Array(lastDay).keys()).map(function (i) {
-    return dayTemplate(year, month, diff + i + 1);
-  });
-
-  return days.length < 7 ? days : [];
-};
-var isPassed = function isPassed(date) {
-  var today = new Date();
-  today = new Date("".concat(today.getMonth() + 1, ".").concat(today.getDate(), ".").concat(today.getFullYear()));
-  return date.getTime() < today.getTime();
-};
-var dateUntil = function dateUntil(val, untilDate) {
-  return val.getTime() < untilDate.getTime();
-};
-var dateAfter = function dateAfter(val, afterDate) {
-  return val.getTime() > afterDate.getTime();
-};
-
 var script$4 = {
   name: 'Day',
   props: {
@@ -570,7 +577,7 @@ var script$4 = {
     /*
     ** Global options
     */
-    today: Date,
+    today: Number,
     chosen: Array,
 
     /*
@@ -598,7 +605,10 @@ var script$4 = {
   },
   computed: {
     parsedDate: function parsedDate() {
-      return new Date("".concat(this.month + 1, ".").concat(this.date, ",").concat(this.year));
+      return new Date(this.year, this.month, this.date);
+    },
+    time: function time() {
+      return this.parsedDate.getTime();
     },
     isToday: function isToday() {
       var d = new Date(this.today);
@@ -644,7 +654,7 @@ var __vue_staticRenderFns__$4 = [];
   /* style */
   var __vue_inject_styles__$4 = function (inject) {
     if (!inject) { return }
-    inject("data-v-05019ec8_0", { source: ".vcalendar-day{display:flex;justify-content:center;align-items:center;cursor:pointer}.vcalendar-day._in-other-month .vcalendar-day__inner{color:#a2a2a2}.vcalendar-day._is-today .vcalendar-day__inner{background-color:#cbdcf8;color:#303030}.vcalendar-day:hover .vcalendar-day__inner{background-color:#ececec;color:#303030}.vcalendar-day._dow{pointer-events:none;color:#0d56c6}.vcalendar-day._active .vcalendar-day__inner{background-color:#0d56c6;color:#fff}.vcalendar-day._disabled{opacity:.4;pointer-events:none}.vcalendar-day__inner{flex-shrink:0;display:block;width:28px;height:28px;border-radius:50%;text-align:center;line-height:27px;color:#303030;transition:all .3s cubic-bezier(0,.4,.4,1)}", map: undefined, media: undefined });
+    inject("data-v-39df0323_0", { source: ".vcalendar-day{display:flex;justify-content:center;align-items:center;cursor:pointer}.vcalendar-day._in-other-month .vcalendar-day__inner{color:#a2a2a2}.vcalendar-day._is-today .vcalendar-day__inner{background-color:#cbdcf8;color:#303030}.vcalendar-day:hover .vcalendar-day__inner{background-color:#ececec;color:#303030}.vcalendar-day._dow{pointer-events:none;color:#0d56c6}.vcalendar-day._active .vcalendar-day__inner{background-color:#0d56c6;color:#fff}.vcalendar-day._disabled{opacity:.4;pointer-events:none}.vcalendar-day__inner{flex-shrink:0;display:block;width:28px;height:28px;border-radius:50%;text-align:center;line-height:27px;color:#303030;transition:all .3s cubic-bezier(0,.4,.4,1)}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -685,7 +695,7 @@ var script$5 = {
     locale: String,
     chosen: Array,
     focused: Object,
-    today: [String, Date],
+    today: Number,
 
     /*
     ** Disabled options
@@ -740,7 +750,7 @@ var __vue_staticRenderFns__$5 = [];
   /* style */
   var __vue_inject_styles__$5 = function (inject) {
     if (!inject) { return }
-    inject("data-v-a61dc3a2_0", { source: ".vcalendar-date-l{display:block;font-variant-numeric:tabular-nums}.vcalendar-date-l__list{display:flex;flex-wrap:wrap;margin:-4px;padding:0;list-style:none}.vcalendar-date-l__day{flex-shrink:0;flex-grow:0;width:calc(100% / 7);padding:4px}", map: undefined, media: undefined });
+    inject("data-v-ed2ff2d6_0", { source: ".vcalendar-date-l{display:block;font-variant-numeric:tabular-nums}.vcalendar-date-l__list{display:flex;flex-wrap:wrap;margin:-4px;padding:0;list-style:none}.vcalendar-date-l__day{flex-shrink:0;flex-grow:0;width:calc(100% / 7);padding:4px}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -844,8 +854,7 @@ var script$6 = {
   },
   computed: {
     today: function today() {
-      var d = new Date();
-      return new Date("".concat(d.getMonth() + 1, ".").concat(d.getDate(), ".").concat(d.getFullYear()));
+      return getDateTime(new Date());
     },
 
     /*
@@ -861,7 +870,7 @@ var script$6 = {
       if (!param.length) { return null; }
       param = param[0];
       var date = param.split(' ')[1];
-      date = Date.parse(date);
+      date = getDateTime(date);
       return date ? new Date(date) : null;
     },
     disabledAfter: function disabledAfter() {
@@ -871,17 +880,20 @@ var script$6 = {
       if (!param.length) { return null; }
       param = param[0];
       var date = param.split(' ')[1];
-      date = Date.parse(date);
+      date = getDateTime(Date.parse(date));
       return date ? new Date(date) : null;
     },
     disabledDates: function disabledDates() {
       var _this$disabled;
 
-      return ((_this$disabled = this.disabled) === null || _this$disabled === void 0 ? void 0 : _this$disabled.length) ? this.disabled.filter(function (i) {
+      var dates = ((_this$disabled = this.disabled) === null || _this$disabled === void 0 ? void 0 : _this$disabled.length) ? this.disabled.filter(function (i) {
+        return i.indexOf('until') < 0 && i.indexOf('after') < 0;
+      }) : [];
+      return dates.filter(function (i) {
         return Date.parse(i);
       }).map(function (i) {
-        return new Date(i).getTime();
-      }) : [];
+        return getDateTime(i);
+      });
     },
 
     /*
@@ -890,11 +902,12 @@ var script$6 = {
     allowedDates: function allowedDates() {
       var _this$allowed;
 
-      return ((_this$allowed = this.allowed) === null || _this$allowed === void 0 ? void 0 : _this$allowed.length) ? this.allowed.filter(function (i) {
+      var dates = ((_this$allowed = this.allowed) === null || _this$allowed === void 0 ? void 0 : _this$allowed.length) ? this.allowed.filter(function (i) {
         return Date.parse(i);
       }).map(function (i) {
-        return new Date(i).getTime();
+        return getDateTime(i);
       }) : [];
+      return dates;
     }
   },
   created: function created() {
@@ -997,7 +1010,7 @@ var __vue_staticRenderFns__$6 = [];
   /* style */
   var __vue_inject_styles__$6 = function (inject) {
     if (!inject) { return }
-    inject("data-v-1a1475b1_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
+    inject("data-v-057d71d0_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
 
   };
   /* scoped */

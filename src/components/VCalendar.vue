@@ -147,9 +147,11 @@
             },
 
             disabledDates() {
-                return this.disabled?.length
-                    ? this.disabled.filter(i => Date.parse(i)).map(i => getDateTime(i))
+                let dates = this.disabled?.length
+                    ? this.disabled.filter(i => i.indexOf('until') < 0 && i.indexOf('after') < 0)
                     : [];
+
+                return dates.filter(i => Date.parse(i)).map(i => getDateTime(i));
             },
 
             /*
