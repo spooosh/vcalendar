@@ -257,10 +257,11 @@
             },
 
             setInitialChosen() {
-                if (!this.allowEmpty)
+                if (!this.allowEmpty) {
                     this.chosen = [this.today.getTime()];
 
-                this.emitChange();
+                    this.emitChange();
+                }
             },
 
             /*
