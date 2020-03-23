@@ -415,8 +415,8 @@
     /* style */
     var __vue_inject_styles__$1 = function (inject) {
       if (!inject) { return }
-      inject("data-v-2cae0a6c_0", { source: ".-input-css-6-ChevronIcon-2tT_{display:block;width:12px;height:12px;color:#303030;opacity:1;transition:all .3s cubic-bezier(0,.4,.4,1);cursor:pointer}.-input-css-6-ChevronIcon-2tT_:hover{color:#0d56c6}.-input-css-6-_left-q7l9{transform:translate3d(0,0,0) rotate(90deg)}.-input-css-6-_right-3vDW{transform:translate3d(0,0,0) rotate(-90deg)}.-input-css-6-svg-SaP3{display:block;width:100%;height:100%;fill:currentColor}", map: undefined, media: undefined });
-  Object.defineProperty(this, "$style", { value: {"ChevronIcon":"-input-css-6-ChevronIcon-2tT_","_left":"-input-css-6-_left-q7l9","_right":"-input-css-6-_right-3vDW","svg":"-input-css-6-svg-SaP3"} });
+      inject("data-v-2cae0a6c_0", { source: ".-input-css-7-ChevronIcon-GFTs{display:block;width:12px;height:12px;color:#303030;opacity:1;transition:all .3s cubic-bezier(0,.4,.4,1);cursor:pointer}.-input-css-7-ChevronIcon-GFTs:hover{color:#0d56c6}.-input-css-7-_left-1TN5{transform:translate3d(0,0,0) rotate(90deg)}.-input-css-7-_right-2F3Y{transform:translate3d(0,0,0) rotate(-90deg)}.-input-css-7-svg-3GP1{display:block;width:100%;height:100%;fill:currentColor}", map: undefined, media: undefined });
+  Object.defineProperty(this, "$style", { value: {"ChevronIcon":"-input-css-7-ChevronIcon-GFTs","_left":"-input-css-7-_left-1TN5","_right":"-input-css-7-_right-2F3Y","svg":"-input-css-7-svg-3GP1"} });
 
     };
     /* scoped */
@@ -993,8 +993,10 @@
         }
       },
       setInitialChosen: function setInitialChosen() {
-        if (!this.allowEmpty) { this.chosen = [this.today.getTime()]; }
-        this.emitChange();
+        if (!this.allowEmpty) {
+          this.chosen = [new Date(this.today).getTime()];
+          this.emitChange();
+        }
       },
 
       /*
@@ -1016,7 +1018,7 @@
     /* style */
     var __vue_inject_styles__$6 = function (inject) {
       if (!inject) { return }
-      inject("data-v-057d71d0_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
+      inject("data-v-690ffc4d_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
 
     };
     /* scoped */

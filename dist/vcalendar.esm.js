@@ -987,8 +987,10 @@ var script$6 = {
       }
     },
     setInitialChosen: function setInitialChosen() {
-      if (!this.allowEmpty) { this.chosen = [this.today.getTime()]; }
-      this.emitChange();
+      if (!this.allowEmpty) {
+        this.chosen = [new Date(this.today).getTime()];
+        this.emitChange();
+      }
     },
 
     /*
@@ -1010,7 +1012,7 @@ var __vue_staticRenderFns__$6 = [];
   /* style */
   var __vue_inject_styles__$6 = function (inject) {
     if (!inject) { return }
-    inject("data-v-057d71d0_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
+    inject("data-v-690ffc4d_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
 
   };
   /* scoped */
