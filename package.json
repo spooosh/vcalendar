@@ -1,6 +1,6 @@
 {
     "name": "@spooosh/vcalendar",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "main": "dist/vcalendar.umd.js",
     "module": "dist/vcalendar.esm.js",
     "unpkg": "dist/vcalendar.min.js",

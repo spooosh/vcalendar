@@ -258,7 +258,7 @@
 
             setInitialChosen() {
                 if (!this.allowEmpty) {
-                    this.chosen = [this.today.getTime()];
+                    this.chosen = [new Date(this.today).getTime()];
 
                     this.emitChange();
                 }

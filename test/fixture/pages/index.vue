@@ -16,7 +16,6 @@
                         :disabled="[`until ${today}`]"
                         :start-week-day="1"
                         multiple
-                        allow-empty
                         @change="val => dates = val.slice()"
                 />
             </div>
