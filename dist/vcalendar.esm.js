@@ -1050,10 +1050,10 @@ var plugin = {
 };
 var GlobalVue = null;
 
-if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
-} else if (typeof global !== 'undefined') {
+if (typeof global !== 'undefined') {
   GlobalVue = global.Vue;
+} else if (typeof window !== 'undefined') {
+  GlobalVue = window.Vue;
 }
 
 if (GlobalVue) {
