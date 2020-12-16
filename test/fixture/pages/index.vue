@@ -17,7 +17,11 @@
                         :start-week-day="1"
                         multiple
                         @change="val => dates = val.slice()"
-                />
+                >
+                    <template #month="props">
+                        {{ props.monthName }} {{ props.year }}
+                    </template>
+                </VCalendar>
             </div>
         </div>
     </div>
