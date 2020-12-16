@@ -422,10 +422,6 @@ var script$3 = {
       type: Number,
       default: new Date().getMonth()
     },
-    focusedYear: {
-      type: Number,
-      default: new Date().getFullYear()
-    },
     locale: String
   },
   computed: {
@@ -439,13 +435,13 @@ var script$3 = {
 var __vue_script__$3 = script$3;
 
 /* template */
-var __vue_render__$3 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcalendar-month"},[_c('ChevronIcon',{staticClass:"vcalendar-month__arrow",attrs:{"left":""},on:{"click":function($event){return _vm.$emit('previous-month')}}}),_vm._v(" "),_c('ul',{staticClass:"vcalendar-month__list"},[_c('li',{staticClass:"vcalendar-month__value"},[_vm._t("default",[_vm._v("\n                "+_vm._s(_vm.monthName)+"\n            ")],{"month":_vm.focusedMonth,"monthName":_vm.monthName,"year":_vm.focusedYear})],2)]),_vm._v(" "),_c('ChevronIcon',{staticClass:"vcalendar-month__arrow",attrs:{"right":""},on:{"click":function($event){return _vm.$emit('next-month')}}})],1)};
+var __vue_render__$3 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcalendar-month"},[_c('ChevronIcon',{staticClass:"vcalendar-month__arrow",attrs:{"left":""},on:{"click":function($event){return _vm.$emit('previous-month')}}}),_vm._v(" "),_c('ul',{staticClass:"vcalendar-month__list"},[_c('li',{staticClass:"vcalendar-month__value"},[_vm._t("default",[_vm._v("\n                "+_vm._s(_vm.monthName)+"\n            ")],{"month":_vm.focusedMonth,"monthName":_vm.monthName})],2)]),_vm._v(" "),_c('ChevronIcon',{staticClass:"vcalendar-month__arrow",attrs:{"right":""},on:{"click":function($event){return _vm.$emit('next-month')}}})],1)};
 var __vue_staticRenderFns__$3 = [];
 
   /* style */
   var __vue_inject_styles__$3 = function (inject) {
     if (!inject) { return }
-    inject("data-v-87929fe2_0", { source: ".vcalendar-month{display:flex;align-items:center;justify-content:space-between}.vcalendar-month__arrow{flex-shrink:0}.vcalendar-month__list{list-style:none;padding:0;margin:0}.vcalendar-month__value{margin:0 10px;text-align:center;font-weight:500}", map: undefined, media: undefined });
+    inject("data-v-d0e4ab72_0", { source: ".vcalendar-month{display:flex;align-items:center;justify-content:space-between}.vcalendar-month__arrow{flex-shrink:0}.vcalendar-month__list{list-style:none;padding:0;margin:0}.vcalendar-month__value{margin:0 10px;text-align:center;font-weight:500}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -912,13 +908,13 @@ var script$6 = {
 var __vue_script__$6 = script$6;
 
 /* template */
-var __vue_render__$6 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcalendar"},[_c('Popover',[_c('YearList',{staticClass:"vcalendar__year-list",attrs:{"focused-year":_vm.focused.year},on:{"previous-year":_vm.onPreviousYear,"next-year":_vm.onNextYear}}),_vm._v(" "),_c('MonthList',{staticClass:"vcalendar__month-list",attrs:{"focused-month":_vm.focused.month,"focused-year":_vm.focused.year,"locale":_vm.locale},on:{"previous-month":_vm.onPreviousMonth,"next-month":_vm.onNextMonth},scopedSlots:_vm._u([{key:"default",fn:function(props){return [_vm._t("month",null,{"month":props.month,"monthName":props.monthName,"year":props.year})]}}],null,true)}),_vm._v(" "),_c('DateList',{staticClass:"vcalendar__date-list",attrs:{"locale":_vm.locale,"start-week-day":_vm.startWeekDay,"chosen":_vm.chosen,"focused":_vm.focused,"today":_vm.today,"disabled-passed":_vm.disabledPassed,"disabled-until":_vm.disabledUntil,"disabled-after":_vm.disabledAfter,"disabled-dates":_vm.disabledDates,"allowed-dates":_vm.allowedDates},on:{"change":_vm.onDateChange}})],1)],1)};
+var __vue_render__$6 = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vcalendar"},[_c('Popover',[_c('YearList',{staticClass:"vcalendar__year-list",attrs:{"focused-year":_vm.focused.year},on:{"previous-year":_vm.onPreviousYear,"next-year":_vm.onNextYear}}),_vm._v(" "),_c('MonthList',{staticClass:"vcalendar__month-list",attrs:{"focused-month":_vm.focused.month,"locale":_vm.locale},on:{"previous-month":_vm.onPreviousMonth,"next-month":_vm.onNextMonth},scopedSlots:_vm._u([{key:"default",fn:function(props){return [_vm._t("month",null,{"year":_vm.focused.year},props)]}}],null,true)}),_vm._v(" "),_c('DateList',{staticClass:"vcalendar__date-list",attrs:{"locale":_vm.locale,"start-week-day":_vm.startWeekDay,"chosen":_vm.chosen,"focused":_vm.focused,"today":_vm.today,"disabled-passed":_vm.disabledPassed,"disabled-until":_vm.disabledUntil,"disabled-after":_vm.disabledAfter,"disabled-dates":_vm.disabledDates,"allowed-dates":_vm.allowedDates},on:{"change":_vm.onDateChange}})],1)],1)};
 var __vue_staticRenderFns__$6 = [];
 
   /* style */
   var __vue_inject_styles__$6 = function (inject) {
     if (!inject) { return }
-    inject("data-v-1cdae3fc_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
+    inject("data-v-24105b23_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
 
   };
   /* scoped */

@@ -9,7 +9,6 @@
             />
             <MonthList
                 :focused-month="focused.month"
-                :focused-year="focused.year"
                 :locale="locale"
                 class="vcalendar__month-list"
                 @previous-month="onPreviousMonth"
@@ -17,9 +16,8 @@
             >
                 <template #default="props">
                     <slot name="month"
-                          :month="props.month"
-                          :month-name="props.monthName"
-                          :year="props.year"
+                          v-bind="props"
+                          :year="focused.year"
                     />
                 </template>
             </MonthList>

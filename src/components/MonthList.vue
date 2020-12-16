@@ -10,7 +10,6 @@
             <li class="vcalendar-month__value">
                 <slot :month="focusedMonth"
                       :month-name="monthName"
-                      :year="focusedYear"
                 >
                     {{ monthName }}
                 </slot>
@@ -40,11 +39,6 @@ export default {
         focusedMonth: {
             type: Number,
             default: new Date().getMonth(),
-        },
-
-        focusedYear: {
-            type: Number,
-            default: new Date().getFullYear(),
         },
 
         locale: String,
