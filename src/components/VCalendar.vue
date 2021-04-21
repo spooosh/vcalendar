@@ -172,11 +172,9 @@ export default {
         ** Allowed dates
         */
         allowedDates() {
-            let dates = this.allowed?.length
+            return this.allowed?.length
                 ? this.allowed.filter(i => Date.parse(i)).map(i => getDateTime(i))
                 : [];
-
-            return dates;
         },
     },
 
@@ -252,19 +250,24 @@ export default {
 
         setInitialDates() {
             if (this.allowedDates?.length) {
-                let dates = this.allowedDates.slice();
-                dates.sort((a, b) => a - b);
+                let dates = [...this.allowedDates]
+                    .sort((a, b) => a - b)
+                    .filter(d => d >= this.today);
 
-                let firstDate = dates[0];
-                let d = new Date(firstDate);
+                if (dates.length) {
+                    const firstDate = dates[0];
+                    const d = new Date(firstDate);
 
-                this.focused.year = d.getFullYear();
-                this.focused.month = d.getMonth();
+                    this.focused.year = d.getFullYear();
+                    this.focused.month = d.getMonth();
 
-                if (!this.allowEmpty) {
-                    this.chosen = [dates[0]];
-                    this.emitChange();
+                    if (!this.allowEmpty) {
+                        this.chosen = [firstDate];
+                        this.emitChange();
+                    }
                 }
+
+
             } else {
                 this.setInitialChosen();
             }
