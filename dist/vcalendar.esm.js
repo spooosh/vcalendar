@@ -680,7 +680,6 @@ var __vue_staticRenderFns__$5 = [];
     undefined
   );
 
-//
 var script$6 = {
   name: 'VCalendar',
   components: {
@@ -804,12 +803,11 @@ var script$6 = {
     allowedDates: function allowedDates() {
       var _this$allowed;
 
-      var dates = (_this$allowed = this.allowed) !== null && _this$allowed !== void 0 && _this$allowed.length ? this.allowed.filter(function (i) {
+      return (_this$allowed = this.allowed) !== null && _this$allowed !== void 0 && _this$allowed.length ? this.allowed.filter(function (i) {
         return Date.parse(i);
       }).map(function (i) {
         return getDateTime(i);
       }) : [];
-      return dates;
     }
   },
   created: function created() {
@@ -868,21 +866,26 @@ var script$6 = {
       this.emitChange();
     },
     setInitialDates: function setInitialDates() {
-      var _this$allowedDates;
+      var _this$allowedDates,
+          _this2 = this;
 
       if ((_this$allowedDates = this.allowedDates) !== null && _this$allowedDates !== void 0 && _this$allowedDates.length) {
-        var dates = this.allowedDates.slice();
-        dates.sort(function (a, b) {
+        var dates = _toConsumableArray(this.allowedDates).sort(function (a, b) {
           return a - b;
+        }).filter(function (d) {
+          return d >= _this2.today;
         });
-        var firstDate = dates[0];
-        var d = new Date(firstDate);
-        this.focused.year = d.getFullYear();
-        this.focused.month = d.getMonth();
 
-        if (!this.allowEmpty) {
-          this.chosen = [dates[0]];
-          this.emitChange();
+        if (dates.length) {
+          var firstDate = dates[0];
+          var d = new Date(firstDate);
+          this.focused.year = d.getFullYear();
+          this.focused.month = d.getMonth();
+
+          if (!this.allowEmpty) {
+            this.chosen = [firstDate];
+            this.emitChange();
+          }
         }
       } else {
         this.setInitialChosen();
@@ -914,7 +917,7 @@ var __vue_staticRenderFns__$6 = [];
   /* style */
   var __vue_inject_styles__$6 = function (inject) {
     if (!inject) { return }
-    inject("data-v-24105b23_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
+    inject("data-v-f5e37462_0", { source: ".vcalendar{display:block;width:320px;box-sizing:border-box}.vcalendar *{box-sizing:inherit}.vcalendar__month-list,.vcalendar__year-list{flex-shrink:0;margin-bottom:8px}.vcalendar__year-list{width:50%}.vcalendar__month-list{width:80%}.vcalendar__date-list{flex-shrink:0}", map: undefined, media: undefined });
 
   };
   /* scoped */
