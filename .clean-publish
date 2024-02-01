@@ -21,6 +21,6 @@
         ".stylelintrc",
         "build.js",
         "jsconfig.json",
-        "package-lock.json",
+        "package-lock.json"
     ]
 }
