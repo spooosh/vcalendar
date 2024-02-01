@@ -1,8 +1,11 @@
-const resolve = require('path').resolve;
-
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+import { resolve } from 'path';
+import sass from 'sass';
 
 module.exports = {
+    alias: {
+        '~': resolve(__dirname, '../..'),
+    },
+
     render: {
         resourceHints: false
     },
@@ -29,43 +32,26 @@ module.exports = {
     plugins: ['~plugins/vcalendar'],
 
     modules: [
-        '@nuxtjs/style-resources'
+        '@nuxtjs/style-resources',
     ],
 
     css: [
-        resolve(__dirname, './assets/scss/common.scss')
+        resolve(__dirname, './assets/scss/common.scss'),
     ],
 
     styleResources: {
-        scss: '../../src/scss/shared/*.scss'
+        scss: '../../src/scss/shared/*.scss',
     },
 
     build: {
-        babel: {
-            plugins: [
-                ['@babel/plugin-proposal-optional-chaining']
-            ]
+        postcss: false,
+
+        loaders: {
+            sass: { implementation: sass },
+            scss: { implementation: sass },
+            vue: {
+                prettify: false,
+            },
         },
-
-
-        extend(config, ctx) {
-            if (ctx.isDev && ctx.isClient) {
-                config.module.rules.push({
-                    enforce: 'pre',
-                    test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    exclude: /(node_modules)/
-                });
-
-                config.plugins.push(
-                    new StyleLintPlugin({
-                        files: ['**/*.scss', '**/*.vue'],
-                        failOnError: false,
-                        quiet: false
-                    })
-                );
-            }
-
-        }
-    }
+    },
 };

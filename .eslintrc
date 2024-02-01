@@ -8,9 +8,6 @@
         "eslint:recommended",
         "plugin:vue/recommended"
     ],
-    "parserOptions": {
-        "parser": "babel-eslint"
-    },
     "plugins": [
         "vue"
     ],
@@ -29,6 +26,7 @@
         ],
         "no-console": "off",
         "no-unused-vars": "off",
+        "vue/first-attribute-linebreak": "off",
         "vue/html-closing-bracket-newline": "off",
         "vue/html-indent": "off",
         "vue/max-attributes-per-line": "off",
@@ -36,6 +34,7 @@
         "vue/require-default-prop": "off",
         "vue/no-v-html": "off",
         "vue/multiline-html-element-content-newline": "off",
+        "vue/multi-word-component-names": "off",
         "vue/singleline-html-element-content-newline": "off",
         "vue/html-closing-bracket-spacing": "off",
         "vue/attribute-hyphenation": [

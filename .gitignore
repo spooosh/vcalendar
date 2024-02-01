@@ -43,3 +43,6 @@ Temporary Items
 
 # Nodenv
 .node-version
+
+# Dist
+dist/

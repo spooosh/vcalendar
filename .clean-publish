@@ -1,0 +1,26 @@
+{
+    "packageManager": "npm",
+    "fields": [
+        "devDependencies",
+        "scripts",
+        "browserslist",
+        "simple-git-hooks",
+        "nano-staged",
+        "standard-version"
+    ],
+    "files": [
+        "node_modules",
+        "src",
+        "test",
+        ".clean-publish",
+        ".editorconfig",
+        ".eslintignore",
+        ".eslintrc",
+        ".gitignore",
+        ".node-version",
+        ".stylelintrc",
+        "build.js",
+        "jsconfig.json",
+        "package-lock.json",
+    ]
+}

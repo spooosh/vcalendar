@@ -43,7 +43,7 @@
             today() {
                 let t = new Date();
 
-                return `${t.getFullYear()}.${t.getMonth() + 1}.${t.getDate()}`;
+                return `${t.getFullYear()}/${t.getMonth() + 1}/${t.getDate()}`;
             },
 
             inputValues() {
@@ -67,9 +67,9 @@
             },
 
             onMouseLeave() {
-                // this.visibleTimeout = setTimeout(() => {
-                //     this.isVisible = false;
-                // }, 20);
+                this.visibleTimeout = setTimeout(() => {
+                    this.isVisible = false;
+                }, 20);
             }
         }
     };

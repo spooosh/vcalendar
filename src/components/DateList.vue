@@ -4,8 +4,7 @@
             <li v-for="d in dayOfAWeek"
                 :key="`dow${d}`"
                 class="vcalendar-date-l__day">
-                <Day :key="`dow${d}`"
-                     dow>
+                <Day :key="`dow${d}`" dow>
                     {{ d }}
                 </Day>
             </li>
@@ -17,18 +16,14 @@
                      :year="d.year"
                      :month="d.month"
                      :date="d.date"
-
                      :today="today"
                      :chosen="chosen"
                      other-month
-
                      :disabled-passed="disabledPassed"
                      :disabled-until="disabledUntil"
                      :disabled-after="disabledAfter"
                      :disabled-dates="disabledDates"
-
                      :allowed-dates="allowedDates"
-
                      @click="val => $emit('change', val)"/>
             </li>
 
@@ -39,17 +34,13 @@
                      :year="d.year"
                      :month="d.month"
                      :date="d.date"
-
                      :chosen="chosen"
                      :today="today"
-
                      :disabled-passed="disabledPassed"
                      :disabled-until="disabledUntil"
                      :disabled-after="disabledAfter"
                      :disabled-dates="disabledDates"
-
                      :allowed-dates="allowedDates"
-
                      @click="val => $emit('change', val)"/>
             </li>
 
@@ -60,21 +51,16 @@
                      :year="d.year"
                      :month="d.month"
                      :date="d.date"
-
                      :today="today"
                      :chosen="chosen"
                      other-month
-
                      :disabled-passed="disabledPassed"
                      :disabled-until="disabledUntil"
                      :disabled-after="disabledAfter"
                      :disabled-dates="disabledDates"
-
                      :allowed-dates="allowedDates"
-
                      @click="val => $emit('change', val)"/>
             </li>
-
         </ul>
     </div>
 </template>
@@ -144,15 +130,12 @@
                 let nextYear = this.focused.month < 11 ? this.focused.year : this.focused.year + 1;
 
                 let addWeek = Math.floor(6 - (this.previousMonthDays.length + this.currentMonthDays.length) / 7);
-                let days = getFirstWeek(nextYear, nextMonth, addWeek, this.startWeekDay);
 
-                return days;
+                return getFirstWeek(nextYear, nextMonth, addWeek, this.startWeekDay);
             },
 
             currentMonthDays() {
-                let days = getDaysInMonth(this.focused.year, this.focused.month);
-
-                return days;
+                return getDaysInMonth(this.focused.year, this.focused.month);
             }
         }
     };

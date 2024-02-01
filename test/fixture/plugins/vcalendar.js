@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import VCalendar from '../../../src/components/VCalendar';
+import VCalendar from '../../..';
 
 Vue.component('VCalendar', VCalendar);

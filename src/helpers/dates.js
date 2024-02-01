@@ -40,7 +40,7 @@ export const getLastWeek = (year, month, startWeekDay) => {
 
 export const isPassed = date => {
     let today = new Date();
-    today = new Date(`${today.getMonth() + 1}.${today.getDate()}.${today.getFullYear()}`);
+    today = new Date(`${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`);
     return date.getTime() < today.getTime();
 };
 
