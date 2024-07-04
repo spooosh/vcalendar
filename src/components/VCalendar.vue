@@ -117,7 +117,6 @@ export default {
             chosen: [],
 
             focused: {
-                date: new Date().getDate(),
                 month: new Date().getMonth(),
                 year: new Date().getFullYear(),
             },
@@ -191,6 +190,8 @@ export default {
 
             if (this.focused.month === 11)
                 this.focused.year -= 1;
+
+            this.emitFocusedDateChange();
         },
 
         onNextMonth() {
@@ -198,14 +199,20 @@ export default {
 
             if (!this.focused.month)
                 this.focused.year += 1;
+
+            this.emitFocusedDateChange();
         },
 
         onPreviousYear() {
             this.focused.year -= 1;
+
+            this.emitFocusedDateChange();
         },
 
         onNextYear() {
             this.focused.year += 1;
+
+            this.emitFocusedDateChange();
         },
 
         onDateChange(val) {
@@ -287,6 +294,10 @@ export default {
 
         emitChange() {
             this.$emit('change', this.chosen);
+        },
+
+        emitFocusedDateChange() {
+           this.$emit('focused-date-change', this.focused);
         },
     },
 };
