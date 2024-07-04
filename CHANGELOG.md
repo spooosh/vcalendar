@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/spooosh/vcalendar/compare/1.2.0...1.3.0) (2024-07-04)
+
+
+### Features
+
+* **VCalendar:** Добавил событие смены просматриваемой даты 'focused-date-change' ([d65460b](https://github.com/spooosh/vcalendar/commit/d65460bc88857f5a07998d7df562dcb74a177aa0))
+
+
+### Bug Fixes
+
+* **publish:** Исправил файл конфигурации clean-publish ([138f9e4](https://github.com/spooosh/vcalendar/commit/138f9e42dfbe20b69cade4f406edeae4b96241e8))
+
 ## 1.2.0 (2024-02-01)
 
 
