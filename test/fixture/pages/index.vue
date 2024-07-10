@@ -12,11 +12,9 @@
             <div v-show="isVisible"
                  :class="$style.calendar">
                 <VCalendar
-                        locale="ru"
-                        :disabled="[`until ${today}`]"
-                        :start-week-day="1"
-                        multiple
-                        @change="val => dates = val.slice()"
+                    v-model="dates"
+                    locale="ru"
+                    :disabled="[`until ${today}`]"
                 >
                     <template #month="props">
                         {{ props.monthName }} {{ props.year }}
