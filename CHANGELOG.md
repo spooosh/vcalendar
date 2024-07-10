@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/spooosh/vcalendar/compare/1.3.0...1.4.0) (2024-07-10)
+
+
+### Features
+
+* **VCalendar:** Добавил props value и эмитер события input, теперь компонент работает через директиву v-model ([d31c959](https://github.com/spooosh/vcalendar/commit/d31c959c19c221a362332d3f86d14b219c26c07e))
+
 ## [1.3.0](https://github.com/spooosh/vcalendar/compare/1.2.0...1.3.0) (2024-07-04)
 
 
