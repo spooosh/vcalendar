@@ -61,6 +61,10 @@ export default {
     },
 
     props: {
+        value: {
+            type: Array,
+            default: () => []
+        },
         /*
         ** Options
         */
@@ -108,7 +112,7 @@ export default {
         */
         startWeekDay: {
             type: Number,
-            default: 0,
+            default: 1,
         },
     },
 
@@ -234,16 +238,17 @@ export default {
         addChosenDate(val) {
             this.multiple
                 ? this.chosen.push(val)
-                : this.chosen = [...[val]];
+                : this.chosen = [val];
 
             this.emitChange();
+            this.emitInput();
         },
 
         removeChosenDate(val) {
             const remove = () => {
                 this.multiple
                     ? this.chosen = this.chosen.filter(d => d !== val).slice()
-                    : this.chosen = [...[]];
+                    : this.chosen = [];
             };
 
             if (this.allowEmpty) {
@@ -253,6 +258,7 @@ export default {
             }
 
             this.emitChange();
+            this.emitInput();
         },
 
         setInitialDates() {
@@ -271,6 +277,7 @@ export default {
                     if (!this.allowEmpty) {
                         this.chosen = [firstDate];
                         this.emitChange();
+                        this.emitInput();
                     }
                 }
 
@@ -285,13 +292,13 @@ export default {
                 this.chosen = [new Date(this.today).getTime()];
 
                 this.emitChange();
+                this.emitInput();
             }
         },
 
         /*
         ** Emitters
         */
-
         emitChange() {
             this.$emit('change', this.chosen);
         },
@@ -299,6 +306,10 @@ export default {
         emitFocusedDateChange() {
            this.$emit('focused-date-change', this.focused);
         },
+
+        emitInput() {
+            this.$emit('input', this.chosen);
+        }
     },
 };
 </script>
